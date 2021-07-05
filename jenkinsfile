@@ -1,10 +1,12 @@
 node {
     stage('SCM') {
 	echo 'Gathering code from version control'
+	git branch: '${branch}', url: 'https://github.com/amigos-giulio/JenkinsGroovy.git' 
     }
     stage('Build') {
         echo 'Building....'
 	echo 'Building new feature'
+	releasenotes()
     }
     stage('Test') {
         echo 'Testing....'
